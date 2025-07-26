@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Referencias a los elementos del DOM
+    const pantallaEntrada = document.getElementById('pantalla-entrada');
     const pantalla1 = document.getElementById('pantalla1');
     const pantalla2 = document.getElementById('pantalla2');
     const pantallaJuego = document.getElementById('pantalla-juego');
@@ -27,18 +28,15 @@ document.addEventListener('DOMContentLoaded', function() {
     let cancionActual = 0;
 
     musicaFondo.addEventListener('ended', function() {
-        // Avanza a la siguiente canción
         cancionActual++;
-        // Si llega al final de la lista, vuelve al principio
         if (cancionActual >= canciones.length) {
             cancionActual = 0;
         }
-        // Carga y reproduce la nueva canción
         musicaFondo.src = canciones[cancionActual];
         musicaFondo.play();
     });
 
-    // --- Lógica del Juego de Memoria ---
+    // --- Lógica del Juego de Memoria (sin cambios) ---
     const cardEmojis = ['🤍', '😏', '🥺', '😉', '🫣', '🥹'];
     let cards = [...cardEmojis, ...cardEmojis];
     let hasFlippedCard = false;
@@ -107,12 +105,19 @@ document.addEventListener('DOMContentLoaded', function() {
         [firstCard, secondCard] = [null, null];
     }
     
-    // --- Lógica de Navegación entre Pantallas ---
-    btnContinuar.addEventListener('click', () => {
-        // Inicia la lista de reproducción con la primera canción
+    // --- LÓGICA DE NAVEGACIÓN NUEVA Y MEJORADA ---
+
+    // 1. El primer clic en la pantalla de entrada inicia la música
+    pantallaEntrada.addEventListener('click', () => {
         musicaFondo.src = canciones[cancionActual];
         musicaFondo.play();
         
+        pantallaEntrada.classList.remove('visible');
+        pantalla1.classList.add('visible');
+    });
+
+    // 2. El siguiente botón solo cambia la pantalla
+    btnContinuar.addEventListener('click', () => {
         pantalla1.classList.remove('visible');
         pantalla2.classList.add('visible');
     });
@@ -131,6 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
         pantalla3.classList.add('visible');
     });
 
+    // --- Lógica de la propuesta (sin cambios) ---
     btnSi.addEventListener('click', () => {
         modalTerminos.style.display = 'flex';
     });

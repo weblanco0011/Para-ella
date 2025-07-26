@@ -30,6 +30,18 @@ body {
     display: flex; /* Muestra la pantalla activa */
 }
 
+/* Estilo para la nueva pantalla de entrada */
+#pantalla-entrada {
+    cursor: pointer;
+}
+
+.contenido-entrada {
+    background: white;
+    padding: 50px 60px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
 .contenido, .contenido-pregunta {
     background: white;
     padding: 40px;
