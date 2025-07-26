@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Una Sorpresa Para Ti</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Etiqueta de audio para la lista de reproducción -->
+    <audio id="musica-fondo"></audio>
+
+    <!-- Pantalla 1: Bienvenida -->
+    <div id="pantalla1" class="pantalla visible">
+        <div class="contenido">
+            <h1>Bienvenida mi niña</h1>
+            <p>¿Quieres iniciar el siguiente juego?</p>
+            <button id="btn-continuar">Continuar</button>
+        </div>
+    </div>
+
+    <!-- Pantalla 2: Introducción -->
+    <div id="pantalla2" class="pantalla">
+        <div class="contenido">
+            <h2>Este juego es una distracción...</h2>
+            <p>...donde te va a volar la mente y te va a hacer la mujer más feliz del mundo entero.</p>
+            <button id="btn-siguiente">Siguiente</button>
+        </div>
+    </div>
+
+    <!-- Pantalla del Juego de Memoria -->
+    <div id="pantalla-juego" class="pantalla">
+        <div class="contenido-juego">
+            <h2>Encuentra Nuestros Pares</h2>
+            <p id="juego-instrucciones">Encuentra los pares que representan nuestra historia. ¡Tú puedes!</p>
+            <section class="memory-game">
+                <!-- Las cartas se generarán aquí con JavaScript -->
+            </section>
+            <button id="btn-continuar-juego" class="hidden">Continuar</button>
+        </div>
+    </div>
+
+    <!-- Pantalla 3: La Pregunta -->
+    <div id="pantalla3" class="pantalla">
+        <div class="contenido-pregunta">
+            <h1>¿Quieres ser mi Novia?</h1>
+            <div class="botones">
+                <button id="btn-si">Sí</button>
+                <button id="btn-no">No</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Términos y Condiciones -->
+    <div id="modal-terminos" class="modal">
+        <div class="modal-contenido">
+            <h2>Términos y Condiciones de Nuestro Noviazgo</h2>
+            <p>Al aceptar, te adhieres a las siguientes cláusulas que regirán nuestra hermosa relación a través de la distancia:</p>
+            <ul>
+                <li><strong>Cláusula 1 (Comunicación Sagrada):</strong> Nos comprometemos a que los "buenos días, mi amor" y "buenas noches, mi vida" sean el inicio y fin de cada día. Son innegociables.</li>
+                <li><strong>Cláusula 2 (Video-citas Semanales):</strong> Se establece como obligatorio tener al menos una video-cita a la semana para ver nuestras sonrisas y no olvidar el rostro del amor de mi vida.</li>
+                <li><strong>Cláusula 3 (Confianza Ciega):</strong> Declaramos una política de confianza absoluta. La honestidad será nuestra brújula y la comunicación nuestra guía para superar cualquier duda.</li>
+                <li><strong>Cláusula 4 (Apoyo Incondicional):</strong> Seré tu fan número uno y tu mayor apoyo en cada meta y sueño, sin importar los kilómetros que nos separen. Tus logros son mis logros.</li>
+                <li><strong>Cláusula 5 (Plan "Cerrando Distancias"):</strong> Desde el inicio, nuestro proyecto principal será planificar activamente la próxima visita. Cada día es un día menos para volver a abrazarnos.</li>
+                <li><strong>Cláusula 6 (Sincronización de Corazones):</strong> Acordamos ver películas o series "juntos". Prepararemos snacks y las veremos al mismo tiempo para sentirnos más cerca.</li>
+                <li><strong>Cláusula 7 (Dosis de Cariño Virtual):</strong> Se fomenta el envío ilimitado de memes, fotos espontáneas, audios y cualquier detalle que nos haga sonreír y sentirnos presentes en la vida del otro.</li>
+                <li><strong>Cláusula 8 (Manejo de Días Grises):</strong> En los días difíciles, prometo ser tu refugio virtual. Escucharte y animarte será mi prioridad, recordándote siempre que somos un "nosotros" contra la distancia.</li>
+                <li><strong>Cláusula 9 (Amor Inmutable):</strong> Por encima de todo, este contrato sella la promesa de que mi amor por ti no conoce de fronteras. Eres y serás mi persona favorita en todo el universo.</li>
+            </ul>
+            <p style="text-align: center; margin-top: 20px;"><strong>¿Aceptas construir este futuro conmigo?</strong></p>
+            <div class="botones-aceptar">
+                <button class="btn-aceptar">Acepto, mi amor</button>
+                <button class="btn-aceptar">SÍ, acepto ser tu novia</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

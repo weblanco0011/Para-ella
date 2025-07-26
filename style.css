@@ -1,0 +1,195 @@
+/* Estilo general y fondo */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #FFC0CB; /* Rosado Pastel */
+    background-image: url('images/imagen1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #333;
+    overflow: hidden; /* Evita barras de scroll por el botón que se mueve */
+    cursor: url('images/lotso_cursor.png'), auto; /* Cursor de Lotso */
+}
+
+/* Contenedor de las pantallas */
+.pantalla {
+    display: none; /* Ocultas por defecto */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(5px); /* Efecto de desenfoque en el fondo */
+    background-color: rgba(255, 255, 255, 0.5); /* Un velo blanco semitransparente */
+}
+
+.pantalla.visible {
+    display: flex; /* Muestra la pantalla activa */
+}
+
+.contenido, .contenido-pregunta {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+h1, h2 {
+    color: #c94a7a;
+}
+
+/* Estilo de los botones */
+button {
+    background-color: #ff7eb9;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 1.2em;
+    cursor: url('images/lotso_cursor.png'), auto;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #c94a7a;
+    transform: scale(1.1);
+}
+
+#btn-no {
+    position: absolute; /* Clave para poder moverlo por la pantalla */
+}
+
+/* Estilo del Modal de Términos */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-contenido {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 500px;
+    text-align: left;
+    max-height: 80vh; /* La altura máxima será el 80% de la altura de la pantalla */
+    overflow-y: auto; /* Agrega una barra de scroll vertical SÓLO si es necesario */
+}
+
+.modal-contenido ul {
+    list-style: none;
+    padding: 0;
+}
+
+.modal-contenido li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.botones-aceptar {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Estilo personalizado para la barra de scroll del modal */
+.modal-contenido::-webkit-scrollbar {
+    width: 12px;
+}
+
+.modal-contenido::-webkit-scrollbar-track {
+    background: #ffeaf0;
+}
+
+.modal-contenido::-webkit-scrollbar-thumb {
+    background-color: #ff7eb9;
+    border-radius: 10px;
+    border: 3px solid #ffeaf0;
+}
+
+.modal-contenido::-webkit-scrollbar-thumb:hover {
+    background-color: #c94a7a;
+}
+
+/* --- Estilos para el Juego de Memoria --- */
+.contenido-juego {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.memory-game {
+    width: 640px;
+    height: 480px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 15px;
+    perspective: 1000px;
+}
+
+.memory-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    cursor: url('images/lotso_cursor.png'), auto;
+}
+
+.memory-card.flip {
+    transform: rotateY(180deg);
+}
+
+.memory-card.matched {
+    transform: rotateY(180deg);
+    cursor: default;
+}
+
+.memory-card.matched .back-face {
+    border: 4px solid #c94a7a;
+}
+
+.front-face,
+.back-face {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.front-face {
+    background: #fce4ec;
+    color: #c94a7a;
+}
+
+.back-face {
+    background: #ff7eb9;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+/* Clase para ocultar el botón de continuar */
+.hidden {
+    display: none;
+}
